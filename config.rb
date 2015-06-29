@@ -27,7 +27,7 @@ page '/*.txt', layout: false
 
 activate :external_pipeline,
   name: :webpack,
-  command: 'rm -rf ./webpack_build; webpack' + (build? ? '' : '--watch'),
+  command: 'rm -rf ./webpack_build; webpack ' + (build? ? '' : '--watch'),
   source: 'webpack_build',
   latency: 1
 
