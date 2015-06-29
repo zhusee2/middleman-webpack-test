@@ -25,6 +25,12 @@ page '/*.txt', layout: false
 #   activate :livereload
 # end
 
+activate :external_pipeline,
+  name: :webpack,
+  command: 'rm -rf ./webpack_build; webpack' + (build? ? '' : '--watch'),
+  source: 'webpack_build',
+  latency: 1
+
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
@@ -39,4 +45,6 @@ configure :build do
 
   # Minify Javascript on build
   # activate :minify_javascript
+
+  activate :asset_hash
 end
